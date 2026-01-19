@@ -1,114 +1,154 @@
-# 📊 Análisis Financiero Predictivo y Simulación de Riesgo de Liquidez
+# 📊 Dashboard de Analítica Financiera y Riesgo de Liquidez  
+## Caso de Estudio en Data Science – ACUAMAR S.A.
 
 <p align="center">
-  <img src="figures/hero_dashboard.png"/>
+  <img src="figures/hero_dashboard.png" width="900"/>
 </p>
-
-Proyecto de **Data Science aplicado a finanzas corporativas**, enfocado en la **proyección de flujo de caja** y la **evaluación del riesgo de liquidez** mediante modelos de series de tiempo y simulación Monte Carlo.
-
----
-
-## 🏢 Contexto del Negocio
 
 <p align="center">
-  <img src="figures/business_context.png"/>
+  <b>Análisis Exploratorio (EDA)</b> · <b>Pronóstico de Series de Tiempo</b> · <b>Simulación de Riesgo</b> · <b>Analítica Financiera</b>
 </p>
-
-El proyecto analiza el comportamiento financiero de una empresa industrial B2B, caracterizada por:
-- Ciclos de cobro largos
-- Altos costos operativos
-- Carga fiscal relevante
-- Riesgo de descalce de liquidez
-
-El objetivo es **anticipar escenarios financieros adversos** y apoyar la toma de decisiones basada en datos.
 
 ---
 
-## 🗂️ Dataset Overview
+## 🎯 Resumen Ejecutivo
 
 <p align="center">
-  <img src="figures/dataset_overview.png"/>
+  <img src="figures/kpis_financieros.png" width="750"/>
 </p>
-
-El dataset está estructurado como una **serie de tiempo financiera mensual**, organizada en:
-
-- **Ingresos**: cobros a clientes, ventas gravadas  
-- **Egresos**: pagos a proveedores, nómina  
-- **Impuestos**: IVA y retenciones  
-- **Liquidez**: efectivo inicial y saldo de caja  
-- **Variable temporal**: fecha (índice mensual)
-
-El diseño del dataset permite análisis exploratorio, modelado temporal y simulación de riesgo.
-
----
-
-## ⚙️ Stack Tecnológico
 
 <p align="center">
-  <img src="figures/tech_stack.png"/>
+  <b>Capital de Trabajo Neto:</b> 140,509,329 COP &nbsp;|&nbsp;
+  <b>Margen Bruto:</b> 47.48% &nbsp;|&nbsp;
+  <b>Días de Cartera:</b> 28
 </p>
 
-El análisis se desarrolla siguiendo un **pipeline de Data Science end-to-end**:
+---
 
-- **Ingesta de Datos**: Excel, CSV  
-- **Procesamiento**: Pandas, NumPy  
-- **Análisis Exploratorio (EDA)**: Matplotlib, Seaborn  
-- **Modelado**: ARIMA, Prophet  
-- **Simulación**: Monte Carlo  
-- **Visualización y Reportes**: Dashboards, GitHub  
+## 🧠 Problema de Negocio
 
-**Lenguaje y entorno**: Python · Jupyter Notebook · Git
+<p align="center">
+  <img src="figures/business_context.png" width="850"/>
+</p>
+
+**Objetivo:**  
+Predecir el flujo de caja y cuantificar el riesgo de liquidez en una empresa industrial B2B, considerando estacionalidad, costos operativos ocultos y obligaciones fiscales.
 
 ---
 
-## 📈 Modelado Predictivo
+## 📂 Descripción del Dataset
 
-Se aplican modelos de **series de tiempo** para proyectar el flujo de caja:
+<p align="center">
+  <img src="figures/dataset_overview.png" width="800"/>
+</p>
 
-- **ARIMA**: captura patrones autoregresivos y estacionales
-- **Prophet**: modela tendencia, estacionalidad y efectos de calendario
-
-Los modelos permiten estimar el comportamiento esperado del saldo de caja a futuro.
+| Variable | Descripción |
+|--------|-------------|
+| FECHA | Índice temporal (mensual) |
+| Cobros_Clientes | Entradas de caja |
+| Pagos_Proveedores | Salidas de caja |
+| Efectivo_Inicial | Liquidez inicial |
+| Ventas_Gravadas | Base gravable de IVA |
+| Gastos_Gravados | IVA descontable |
+| Base_Retencion | Retenciones aplicables |
+| Gasto_Nomina | Costos laborales |
 
 ---
 
-## 📉 Predicción de Riesgo Financiero  
+## 🔍 Análisis Exploratorio de Datos (EDA)
+
+### Dinámica Histórica del Flujo de Caja
+<p align="center">
+  <img src="figures/cobros_vs_pagos.png" width="850"/>
+</p>
+
+*Análisis de descalces históricos entre ingresos y egresos.*
+
+---
+
+### Alertas de Liquidez
+<p align="center">
+  <img src="figures/alerta_liquidez_flujo_caja.png" width="850"/>
+</p>
+
+*Validación del umbral mínimo de liquidez y detección temprana de riesgos.*
+
+---
+
+## 📈 Pronóstico del Flujo de Caja (Prophet)
+
+<p align="center">
+  <img src="figures/flujo_caja_proyectado.png" width="850"/>
+</p>
+
+*Proyección de entradas y salidas acumuladas a un horizonte de 12 meses.*
+
+---
+
+## 🧾 Pronóstico y Control de Impuestos
+
+<p align="center">
+  <img src="figures/control_impuestos.png" width="850"/>
+</p>
+
+*Estimación mensual de IVA, retenciones e impuesto de renta para control fiscal.*
+
+---
+
+## 📉 Dashboard de Riesgo Financiero  
 ### ARIMA + Simulación Monte Carlo
 
-#### 📌 KPIs de Riesgo
-
 <p align="center">
-  <img src="figures/kpis_riesgos.png" width="600"/>
+  <img src="figures/kpis_riesgos.png" width="780"/>
 </p>
 
-| Métrica | Valor |
-|------|------|
-| Probabilidad de fallo de liquidez | 0.00% |
-| Saldo final esperado | 1.31 B COP |
-| Escenario pesimista (P10) | 1.27 B COP |
-
-> Valores redondeados para visualización.
+<p align="center">
+  <b>Probabilidad de Fallo de Liquidez:</b> 0.00% &nbsp;|&nbsp;
+  <b>Saldo Final Esperado:</b> 1.316 B COP &nbsp;|&nbsp;
+  <b>Escenario Pesimista (P10):</b> 1.269 B COP
+</p>
 
 ---
 
-## 🧠 Principales Insights
-
-- La empresa mantiene un **colchón de liquidez sólido** bajo los escenarios simulados.
-- El riesgo de liquidez es bajo en el horizonte analizado.
-- Los impuestos y costos operativos tienen un impacto directo en la variabilidad del flujo de caja.
-- La simulación Monte Carlo permite cuantificar escenarios extremos más allá del valor esperado.
+### Escenarios Monte Carlo
+<p align="center">
+  <img src="figures/montecarlo_escenarios.png" width="900"/>
+</p>
 
 ---
 
-## 🚀 Valor del Proyecto
-
-Este proyecto demuestra:
-- Aplicación práctica de **Data Science en finanzas**
-- Dominio de **series de tiempo y simulación de riesgo**
-- Capacidad de **conectar análisis técnico con contexto de negocio**
-- Buenas prácticas de **documentación y comunicación de resultados**
+### Distribución del Saldo Final
+<p align="center">
+  <img src="figures/histograma_saldos_finales.png" width="900"/>
+</p>
 
 ---
 
-## 📁 Estructura del Repositorio
+## 🧠 Interpretación Ejecutiva
+
+- Flujo de caja proyectado consistentemente positivo  
+- Riesgo de liquidez prácticamente nulo en el horizonte analizado  
+- Alta resiliencia financiera ante escenarios adversos  
+- Metodología robusta y replicable para análisis financiero predictivo  
+
+---
+
+## 🧰 Stack Tecnológico
+
+<p align="center">
+  <img src="figures/tech_stack.png" width="650"/>
+</p>
+
+- **Python**
+- pandas · numpy
+- matplotlib · seaborn
+- statsmodels
+- prophet
+- plotly express
+- ARIMA
+- Streamlit
+
+---
+
+
 
